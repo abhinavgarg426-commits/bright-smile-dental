@@ -3,266 +3,422 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bright Smile Dental Clinic | Dr. Priya Sharma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <title>Dr. Arjun's Dental Studio | Koramangala, Bangalore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; color: #1a1a2e; line-height: 1.6; }
-        
+        body { font-family: 'Inter', sans-serif; background: #fff; color: #1a1a1a; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Crimson Pro', serif; }
+
         /* Nav */
-        nav { background: #fff; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #0077b6; }
-        .logo span { color: #00b4d8; }
-        nav ul { display: flex; list-style: none; gap: 2rem; }
-        nav a { text-decoration: none; color: #1a1a2e; font-weight: 500; transition: 0.3s; }
-        nav a:hover { color: #0077b6; }
-        .nav-cta { background: #0077b6; color: #fff !important; padding: 0.5rem 1.5rem; border-radius: 50px; }
-        .nav-cta:hover { background: #005f8a; }
-        
+        nav { position: fixed; top: 0; width: 100%; padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; transition: 0.4s; }
+        nav.scrolled { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 0.8rem 5%; }
+        .logo { font-family: 'Crimson Pro', serif; font-size: 1.2rem; font-weight: 600; color: #2d7a7a; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: #555; text-decoration: none; font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: #2d7a7a; }
+        .book-btn { background: #2d7a7a; color: #fff; padding: 0.7rem 1.5rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+        .book-btn:hover { background: #1f5c5c; }
+
         /* Hero */
-        .hero { background: linear-gradient(135deg, #e8f4f8 0%, #caf0f8 100%); padding: 5rem 5%; display: flex; align-items: center; gap: 4rem; min-height: 90vh; }
-        .hero-content { flex: 1; }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; }
-        .hero-content h1 span { color: #0077b6; }
-        .hero-content p { font-size: 1.1rem; color: #555; margin-bottom: 2rem; max-width: 500px; }
+        .hero { min-height: 100vh; display: flex; }
+        .hero-left { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 8rem 6% 4rem 8%; position: relative; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(45,122,122,0.1); color: #2d7a7a; padding: 0.4rem 1rem; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; width: fit-content; margin-bottom: 1.5rem; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; color: #1a1a1a; margin-bottom: 1.5rem; }
+        .hero h1 em { color: #2d7a7a; font-style: italic; }
+        .hero p { color: #777; font-size: 1rem; max-width: 440px; line-height: 1.8; margin-bottom: 2.5rem; font-weight: 300; }
         .hero-btns { display: flex; gap: 1rem; }
-        .btn-primary { background: #0077b6; color: #fff; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; }
-        .btn-primary:hover { background: #005f8a; transform: translateY(-2px); }
-        .btn-secondary { background: #fff; color: #0077b6; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; border: 2px solid #0077b6; transition: 0.3s; }
-        .btn-secondary:hover { background: #0077b6; color: #fff; }
-        .hero-img { flex: 1; text-align: center; }
-        .hero-img i { font-size: 15rem; color: #0077b6; opacity: 0.8; }
-        
+        .btn-teal { background: #2d7a7a; color: #fff; padding: 1rem 2rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; display: inline-block; }
+        .btn-teal:hover { background: #1f5c5c; transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: #1a1a1a; padding: 1rem 2rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; border: 1px solid #ccc; transition: 0.3s; display: inline-block; }
+        .btn-outline:hover { border-color: #2d7a7a; color: #2d7a7a; }
+        .hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; }
+        .hero-stat .num { font-family: 'Crimson Pro', serif; font-size: 2.5rem; color: #2d7a7a; font-weight: 600; }
+        .hero-stat .label { font-size: 0.72rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+        .hero-right { flex: 0.8; background: linear-gradient(160deg, #e8f4f4 0%, #d0ebeb 100%); display: flex; align-items: center; justify-content: center; position: relative; }
+        .hero-right i { font-size: 12rem; color: rgba(45,122,122,0.15); }
+        .hero-right .floating-card { position: absolute; bottom: 3rem; left: -2rem; background: #fff; padding: 1.2rem 1.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .hero-right .floating-card .stars { color: #f5a623; font-size: 0.8rem; margin-bottom: 0.3rem; }
+        .hero-right .floating-card p { font-size: 0.8rem; color: #555; }
+        .hero-right .floating-card strong { font-size: 0.9rem; }
+
+        /* Marquee */
+        .marquee { background: #2d7a7a; padding: 0.7rem 0; overflow: hidden; }
+        .marquee-content { display: inline-block; animation: marquee 18s linear infinite; white-space: nowrap; }
+        .marquee-content span { color: rgba(255,255,255,0.8); font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; margin: 0 2rem; }
+        .marquee-content span b { color: #a8e6e6; }
+        @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
         /* Services */
-        .services { padding: 5rem 5%; background: #fff; }
-        .section-title { text-align: center; margin-bottom: 3rem; }
-        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .section-title p { color: #777; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
-        .service-card { background: #f8f9fa; padding: 2rem; border-radius: 20px; text-align: center; transition: 0.3s; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
-        .service-card i { font-size: 3rem; color: #0077b6; margin-bottom: 1rem; }
-        .service-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .service-card p { font-size: 0.9rem; color: #666; }
-        
-        /* About */
-        .about { padding: 5rem 5%; background: #f8f9fa; display: flex; gap: 4rem; align-items: center; }
-        .about-img { flex: 1; text-align: center; }
-        .about-img i { font-size: 10rem; color: #0077b6; opacity: 0.6; }
-        .about-content { flex: 1; }
-        .about-content h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem; }
-        .about-content p { margin-bottom: 1.5rem; color: #555; }
-        .about-stats { display: flex; gap: 3rem; margin-top: 2rem; }
-        .stat { text-align: center; }
-        .stat-number { font-size: 2.5rem; font-weight: 700; color: #0077b6; }
-        .stat-label { font-size: 0.85rem; color: #777; }
-        
+        .services { padding: 6rem 5%; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-label { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: #2d7a7a; }
+        .section-title { font-family: 'Crimson Pro', serif; font-size: 2.5rem; margin: 0.5rem 0; }
+        .section-sub { color: #999; font-size: 0.9rem; }
+        .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+        .service-card { padding: 2rem; border: 1px solid #eee; transition: 0.3s; cursor: pointer; }
+        .service-card:hover { border-color: #2d7a7a; box-shadow: 0 5px 30px rgba(45,122,122,0.08); transform: translateY(-3px); }
+        .service-card .icon { width: 55px; height: 55px; background: rgba(45,122,122,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+        .service-card .icon i { color: #2d7a7a; font-size: 1.4rem; }
+        .service-card h3 { font-family: 'Crimson Pro', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .service-card p { font-size: 0.85rem; color: #888; line-height: 1.6; }
+        .service-card .arrow { color: #2d7a7a; margin-top: 1rem; font-size: 0.8rem; display: flex; align-items: center; gap: 0.3rem; }
+
+        /* Why us */
+        .why-us { padding: 6rem 8%; background: #f9fbfb; display: flex; gap: 4rem; align-items: center; }
+        .why-left { flex: 1; }
+        .why-left .label { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: #2d7a7a; margin-bottom: 1rem; }
+        .why-left h2 { font-family: 'Crimson Pro', serif; font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2; }
+        .why-left p { color: #777; font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; }
+        .why-right { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .why-item { padding: 1.5rem; background: #fff; border-left: 3px solid #2d7a7a; }
+        .why-item h3 { font-family: 'Crimson Pro', serif; font-size: 1.1rem; margin-bottom: 0.4rem; }
+        .why-item p { font-size: 0.82rem; color: #888; line-height: 1.5; }
+
+        /* Dentists */
+        .dentists { padding: 6rem 5%; }
+        .dentist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto; }
+        .dentist-card { display: flex; gap: 1.5rem; background: #f9fbfb; padding: 1.5rem; }
+        .dentist-avatar { width: 90px; height: 90px; background: rgba(45,122,122,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .dentist-avatar i { color: #2d7a7a; font-size: 2rem; }
+        .dentist-info h3 { font-family: 'Crimson Pro', serif; font-size: 1.2rem; margin-bottom: 0.2rem; }
+        .dentist-info .degree { color: #2d7a7a; font-size: 0.8rem; font-weight: 500; margin-bottom: 0.5rem; }
+        .dentist-info p { font-size: 0.82rem; color: #888; line-height: 1.6; }
+
         /* Testimonials */
-        .testimonials { padding: 5rem 5%; background: #0077b6; color: #fff; }
-        .testimonials .section-title h2 { color: #fff; }
-        .testimonials .section-title p { color: rgba(255,255,255,0.7); }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
-        .testimonial-card { background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; }
-        .testimonial-card p { font-style: italic; margin-bottom: 1rem; }
-        .testimonial-card .stars { color: #ffd700; margin-bottom: 0.5rem; }
-        .testimonial-card h4 { font-size: 0.9rem; }
-        .testimonial-card span { font-size: 0.8rem; opacity: 0.7; }
-        
-        /* Contact */
-        .contact { padding: 5rem 5%; }
-        .contact-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-        .contact-info h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; }
-        .contact-info p { color: #555; margin-bottom: 2rem; }
-        .contact-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-        .contact-item i { width: 40px; height: 40px; background: #e8f4f8; color: #0077b6; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .contact-form { background: #f8f9fa; padding: 2rem; border-radius: 20px; }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 10px; margin-bottom: 1rem; font-family: 'Poppins', sans-serif; }
-        .contact-form button { width: 100%; padding: 1rem; background: #0077b6; color: #fff; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; transition: 0.3s; font-size: 1rem; }
-        .contact-form button:hover { background: #005f8a; }
-        
+        .testimonials { padding: 6rem 5%; background: #1a1a1a; color: #fff; }
+        .testimonials .section-label { color: #2d7a7a; }
+        .testimonials .section-title { color: #fff; }
+        .testimonials .section-sub { color: rgba(255,255,255,0.4); }
+        .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto; }
+        .testi-card { background: rgba(255,255,255,0.05); padding: 2rem; border: 1px solid rgba(255,255,255,0.08); }
+        .testi-card .quote { color: #2d7a7a; font-size: 1.5rem; margin-bottom: 1rem; }
+        .testi-card p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; }
+        .testi-card h4 { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500; }
+        .testi-card span { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+
+        /* Book */
+        .book-section { padding: 6rem 5%; text-align: center; }
+        .book-section .label { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: #2d7a7a; }
+        .book-section h2 { font-family: 'Crimson Pro', serif; font-size: 2.5rem; margin: 0.5rem 0; }
+        .book-section p { color: #999; max-width: 400px; margin: 0 auto 2.5rem; }
+        .book-form { max-width: 500px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .book-form input, .book-form select { padding: 0.9rem; border: 1px solid #ddd; font-family: 'Inter', sans-serif; font-size: 0.85rem; outline: none; transition: 0.3s; }
+        .book-form input:focus, .book-form select:focus { border-color: #2d7a7a; }
+        .book-form .full { grid-column: span 2; }
+        .book-form textarea { padding: 0.9rem; border: 1px solid #ddd; font-family: 'Inter', sans-serif; font-size: 0.85rem; height: 80px; resize: none; outline: none; grid-column: span 2; }
+        .book-form button { grid-column: span 2; padding: 1rem; background: #2d7a7a; color: #fff; border: none; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.3s; font-family: 'Inter', sans-serif; }
+        .book-form button:hover { background: #1f5c5c; }
+
+        /* Info */
+        .info-bar { background: #2d7a7a; padding: 2rem 5%; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; }
+        .info-item { color: #fff; font-size: 0.85rem; display: flex; align-items: center; gap: 0.8rem; }
+        .info-item i { font-size: 1.2rem; }
+
         /* Footer */
-        footer { background: #1a1a2e; color: #fff; padding: 3rem 5%; text-align: center; }
-        footer p { opacity: 0.7; font-size: 0.9rem; }
-        
+        footer { background: #0d0d0d; color: #fff; padding: 4rem 5% 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand .logo { font-family: 'Crimson Pro', serif; font-size: 1.3rem; color: #2d7a7a; margin-bottom: 1rem; }
+        .footer-brand p { color: #666; font-size: 0.85rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .footer-brand .social a { color: #666; margin-right: 1rem; transition: 0.3s; }
+        .footer-brand .social a:hover { color: #2d7a7a; }
+        .footer-col h4 { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #2d7a7a; margin-bottom: 1rem; }
+        .footer-col a { display: block; color: #666; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.6rem; transition: 0.3s; }
+        .footer-col a:hover { color: #2d7a7a; }
+        .footer-bottom { border-top: 1px solid #222; padding-top: 2rem; text-align: center; }
+        .footer-bottom p { font-size: 0.75rem; color: #444; }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .stagger > * { opacity: 0; transform: translateY(20px); transition: 0.5s; }
+        .stagger.active > *:nth-child(1) { opacity:1;transform:translateY(0);transition-delay:0s; }
+        .stagger.active > *:nth-child(2) { opacity:1;transform:translateY(0);transition-delay:0.15s; }
+        .stagger.active > *:nth-child(3) { opacity:1;transform:translateY(0);transition-delay:0.3s; }
+        .stagger.active > *:nth-child(4) { opacity:1;transform:translateY(0);transition-delay:0.45s; }
+        .stagger.active > *:nth-child(5) { opacity:1;transform:translateY(0);transition-delay:0.6s; }
+        .stagger.active > *:nth-child(6) { opacity:1;transform:translateY(0);transition-delay:0.75s; }
+
         /* Mobile */
         @media (max-width: 768px) {
             nav ul { display: none; }
-            .hero { flex-direction: column; text-align: center; padding: 3rem 5%; }
-            .hero-content h1 { font-size: 2.2rem; }
-            .hero-btns { justify-content: center; flex-wrap: wrap; }
-            .about { flex-direction: column; }
-            .contact-container { grid-template-columns: 1fr; }
+            .hero { flex-direction: column; }
+            .hero-right { min-height: 50vh; }
+            .hero-right .floating-card { left: 1rem; bottom: 1rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .service-grid { grid-template-columns: 1fr; }
+            .why-us { flex-direction: column; }
+            .why-right { grid-template-columns: 1fr; }
+            .dentist-grid { grid-template-columns: 1fr; }
+            .testi-grid { grid-template-columns: 1fr; }
+            .book-form { grid-template-columns: 1fr; }
+            .book-form .full, .book-form textarea, .book-form button { grid-column: span 1; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">Bright<span>Smile</span></div>
+    <nav id="navbar">
+        <div class="logo">Dr. Arjun's Dental Studio</div>
         <ul>
-            <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#testimonials">Reviews</a></li>
-            <li><a href="#contact" class="nav-cta">Book Appointment</a></li>
+            <li><a href="#doctors">Our Doctors</a></li>
+            <li><a href="#reviews">Reviews</a></li>
         </ul>
+        <a href="#book" class="book-btn">Book Appointment</a>
     </nav>
-    
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Your Smile Deserves the <span>Best Care</span></h1>
-            <p>State-of-the-art dental care with a gentle touch. Dr. Priya Sharma and team provide comprehensive dental services in a comfortable, modern environment.</p>
+
+    <section class="hero">
+        <div class="hero-left">
+            <div class="hero-badge"><i class="fas fa-shield-alt"></i> Safe & Sterilized Clinic</div>
+            <h1>Your Smile,<br><em>Our Priority</em></h1>
+            <p>We're not the biggest clinic in Bangalore. We're the one where Dr. Arjun personally checks every patient, where the equipment is always new, and where we take the time to explain every procedure — because you deserve to know what's happening with your teeth.</p>
             <div class="hero-btns">
-                <a href="#contact" class="btn-primary">Book Appointment</a>
-                <a href="tel:+919876543210" class="btn-secondary"><i class="fas fa-phone"></i> Call Now</a>
+                <a href="#book" class="btn-teal">Book Free Consultation</a>
+                <a href="#services" class="btn-outline">Our Services</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><div class="num">12+</div><div class="label">Years Experience</div></div>
+                <div class="hero-stat"><div class="num">8K+</div><div class="label">Happy Patients</div></div>
+                <div class="hero-stat"><div class="num">4.9</div><div class="label">Google Rating</div></div>
             </div>
         </div>
-        <div class="hero-img">
+        <div class="hero-right">
             <i class="fas fa-tooth"></i>
+            <div class="floating-card">
+                <div class="stars">★★★★★</div>
+                <p><strong>Loved by 500+ families</strong> in Koramangala</p>
+            </div>
         </div>
     </section>
-    
+
+    <div class="marquee">
+        <div class="marquee-content">
+            <span><b>🦷</b> New Patients: Free Check-up</span>
+            <span><b>✨</b> Painless Laser Dentistry</span>
+            <span><b>📱</b> Video Consultations Available</span>
+            <span><b>💳</b> All Cards & UPI Accepted</span>
+            <span><b>⏰</b> Open Mon-Sat: 9 AM - 8 PM</span>
+            <span><b>🦷</b> New Patients: Free Check-up</span>
+            <span><b>✨</b> Painless Laser Dentistry</span>
+            <span><b>📱</b> Video Consultations Available</span>
+            <span><b>💳</b> All Cards & UPI Accepted</span>
+            <span><b>⏰</b> Open Mon-Sat: 9 AM - 8 PM</span>
+        </div>
+    </div>
+
     <section class="services" id="services">
-        <div class="section-title">
-            <h2>Our Services</h2>
-            <p>Comprehensive dental care for your entire family</p>
+        <div class="section-header reveal">
+            <div class="section-label">What We Offer</div>
+            <h2 class="section-title">Complete Dental Care</h2>
+            <p class="section-sub">From routine cleaning to full smile makeovers — everything under one roof.</p>
         </div>
-        <div class="services-grid">
+        <div class="service-grid stagger">
             <div class="service-card">
-                <i class="fas fa-teeth"></i>
-                <h3>General Dentistry</h3>
-                <p>Regular check-ups, cleanings, and preventive care to keep your smile healthy.</p>
+                <div class="icon"><i class="fas fa-teeth"></i></div>
+                <h3>Teeth Cleaning & Polishing</h3>
+                <p>Professional cleaning that actually removes plaque and tartar buildup — not just a polish. Takes 45 minutes. ₹800 onwards.</p>
+                <div class="arrow"><span>Learn more</span> <i class="fas fa-arrow-right"></i></div>
             </div>
             <div class="service-card">
-                <i class="fas fa-magic"></i>
+                <div class="icon"><i class="fas fa-sparkles"></i></div>
                 <h3>Teeth Whitening</h3>
-                <p>Professional whitening treatments for a brighter, more confident smile.</p>
+                <p>Office-grade whitening that lightens teeth by 4-8 shades in one session. No Sensitivity if done right. We use the latest LED technology.</p>
+                <div class="arrow"><span>Learn more</span> <i class="fas fa-arrow-right"></i></div>
             </div>
             <div class="service-card">
-                <i class="fas fa-crown"></i>
+                <div class="icon"><i class="fas fa-crown"></i></div>
                 <h3>Dental Implants</h3>
-                <p>Permanent tooth replacement solutions that look and feel natural.</p>
+                <p>Permanent tooth replacement that looks and feels like your natural teeth. German implants with lifetime warranty. EMI options available.</p>
+                <div class="arrow"><span>Learn more</span> <i class="fas fa-arrow-right"></i></div>
             </div>
             <div class="service-card">
-                <i class="fas fa-smile"></i>
+                <div class="icon"><i class="fas fa-teeth-open"></i></div>
+                <h3>Root Canal Treatment</h3>
+                <p>Pain-free single-visit RCT using rotary endodontic files. No referral needed — we do it all in one session. Guaranteed comfortable experience.</p>
+                <div class="arrow"><span>Learn more</span> <i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="service-card">
+                <div class="icon"><i class="fas fa-smile-beam"></i></div>
                 <h3>Braces & Aligners</h3>
-                <p>Invisible aligners and modern braces for perfectly straight teeth.</p>
+                <p>Metal, ceramic, and clear aligners — we help you choose what works for your smile and your budget. Free consultation, no obligations.</p>
+                <div class="arrow"><span>Learn more</span> <i class="fas fa-arrow-right"></i></div>
             </div>
             <div class="service-card">
-                <i class="fas fa-child"></i>
-                <h3>Pediatric Dentistry</h3>
-                <p>Gentle, fun dental care designed specifically for children.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-heart"></i>
-                <h3>Root Canal</h3>
-                <p>Painless root canal treatments using the latest technology.</p>
+                <div class="icon"><i class="fas fa-tooth"></i></div>
+                <h3>Tooth Extraction</h3>
+                <p>Wisdom teeth, impacted teeth, or just a problematic molar — we do extractions quickly and with minimal discomfort. Worth it anesthesia guaranteed.</p>
+                <div class="arrow"><span>Learn more</span> <i class="fas fa-arrow-right"></i></div>
             </div>
         </div>
     </section>
-    
-    <section class="about" id="about">
-        <div class="about-img">
-            <i class="fas fa-user-md"></i>
+
+    <section class="why-us" id="about">
+        <div class="why-left reveal">
+            <div class="label">Why Choose Us</div>
+            <h2>Not a Factory Clinic.<br>A Family Dental Practice.</h2>
+            <p>We've been in Koramangala for 12 years. Most of our new patients come from word-of-mouth — someone told their friend, who told their colleague. That's how we build trust — one honest dental visit at a time.</p>
+            <p>Dr. Arjun Mehta's philosophy: never overtreat. If you don't need a procedure, we'll tell you. Our goal is to keep your teeth healthy for life — not to upsell you into expensive treatments you don't need.</p>
         </div>
-        <div class="about-content">
-            <h2>Meet Dr. Priya Sharma</h2>
-            <p>With over 15 years of experience in dentistry, Dr. Sharma has transformed thousands of smiles across Mumbai. Graduated from Nair Hospital Dental College, she specializes in cosmetic dentistry and believes every patient deserves a comfortable, pain-free experience.</p>
-            <p>Our clinic is equipped with the latest digital X-rays, intraoral cameras, and laser dentistry equipment to provide the highest standard of care.</p>
-            <div class="about-stats">
-                <div class="stat">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Years Experience</div>
+        <div class="why-right stagger">
+            <div class="why-item">
+                <h3>No Overtreatment</h3>
+                <p>Dr. Arjun has turned away patients who wanted veneers when cleaning was all they needed. Honest first.</p>
+            </div>
+            <div class="why-item">
+                <h3>Sterilization First</h3>
+                <p>Every instrument autoclaved. Disposable everything. COVID-safe protocols still in place because safety doesn't expire.</p>
+            </div>
+            <div class="why-item">
+                <h3>Transparent Pricing</h3>
+                <p>Full treatment plan with itemized costs before anything starts. No surprises on the billing day.</p>
+            </div>
+            <div class="why-item">
+                <h3>Painless Guarantee</h3>
+                <p>We're not exaggerating when we say painless. Local anesthesia done properly, patient-controlled sedation available.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="dentists" id="doctors">
+        <div class="section-header reveal">
+            <div class="section-label">Meet The Team</div>
+            <h2 class="section-title">Our Doctors</h2>
+            <p class="section-sub">Qualified, experienced, and actually good with anxious patients</p>
+        </div>
+        <div class="dentist-grid stagger">
+            <div class="dentist-card">
+                <div class="dentist-avatar"><i class="fas fa-user"></i></div>
+                <div class="dentist-info">
+                    <h3>Dr. Arjun Mehta, MDS</h3>
+                    <div class="degree">Prosthodontist — 12 Years</div>
+                    <p>Dr. Arjun has placed over 2,000 implants and specializes in full mouth rehabilitations. He's known in Koramangala for never rushing a patient. Outside work: amateur marathon runner, terrible but enthusiastic guitarist.</p>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">10K+</div>
-                    <div class="stat-label">Happy Patients</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">4.9</div>
-                    <div class="stat-label">Google Rating</div>
+            </div>
+            <div class="dentist-card">
+                <div class="dentist-avatar"><i class="fas fa-user"></i></div>
+                <div class="dentist-info">
+                    <h3>Dr. Srishti Kapoor, MDS</h3>
+                    <div class="degree">Orthodontist — 8 Years</div>
+                    <p>Dr. Srishti leads our braces and aligners practice. She's particularly good with young patients who are nervous about getting braces — her patience approach has converted many anxious kids into willing patients.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section class="testimonials" id="testimonials">
-        <div class="section-title">
-            <h2>What Patients Say</h2>
-            <p>Real stories from real patients</p>
+
+    <section class="testimonials" id="reviews">
+        <div class="section-header reveal">
+            <div class="section-label">Reviews</div>
+            <h2 class="section-title">What Patients Say</h2>
+            <p class="section-sub">4.9 on Google from 340+ verified reviews</p>
         </div>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>"Dr. Sharma and her team made me feel so comfortable. I used to be terrified of dentists, but not anymore! My smile has never looked better."</p>
-                <h4>Rahul Mehta</h4>
-                <span>Software Engineer, Mumbai</span>
+        <div class="testi-grid stagger">
+            <div class="testi-card">
+                <div class="quote"><i class="fas fa-quote-left"></i></div>
+                <p>"I was absolutely terrified of dentists — hadn't been in 5 years. Dr. Arjun and his team were so patient and gentle that I actually fell asleep during my root canal. This is not a drill. I fell asleep. That's how painless it was."</p>
+                <h4>Priya Nair</h4>
+                <span>Software Engineer, HSR Layout</span>
             </div>
-            <div class="testimonial-card">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>"Got my teeth aligned here and the results are amazing! Very professional staff and modern equipment. Highly recommended."</p>
-                <h4>Ananya Patel</h4>
-                <span>College Student, Pune</span>
-            </div>
-        </div>
-    </section>
-    
-    <section class="contact" id="contact">
-        <div class="section-title">
-            <h2>Book Your Appointment</h2>
-            <p>We'd love to hear from you</p>
-        </div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h2>Get In Touch</h2>
-                <p>Ready to transform your smile? Contact us today to schedule your consultation.</p>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <strong>Location</strong><br>
-                        42, Green Park Road<br>
-                        Andheri West, Mumbai 400053
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <strong>Phone</strong><br>
-                        +91 98765 43210
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <strong>Hours</strong><br>
-                        Mon - Sat: 9:00 AM - 8:00 PM<br>
-                        Sunday: 10:00 AM - 2:00 PM
-                    </div>
-                </div>
-            </div>
-            <div class="contact-form">
-                <form>
-                    <input type="text" placeholder="Your Name">
-                    <input type="tel" placeholder="Phone Number">
-                    <input type="email" placeholder="Email Address">
-                    <select style="width:100%;padding:1rem;border:1px solid #ddd;border-radius:10px;margin-bottom:1rem;font-family:'Poppins',sans-serif;">
-                        <option>Select Service</option>
-                        <option>General Check-up</option>
-                        <option>Teeth Whitening</option>
-                        <option> Dental Implants</option>
-                        <option>Braces & Aligners</option>
-                        <option>Root Canal</option>
-                        <option>Other</option>
-                    </select>
-                    <textarea rows="4" placeholder="Any specific concerns?"></textarea>
-                    <button type="submit">Request Appointment</button>
-                </form>
+            <div class="testi-card">
+                <div class="quote"><i class="fas fa-quote-left"></i></div>
+                <p>"Dr. Srishti did my daughter's braces and she actually looked forward to her appointments. Rare praise from a 14-year-old. The results were fantastic too. Highly recommend the whole team."</p>
+                <h4>Rajesh Iyer</h4>
+                <span>Business Owner, Indiranagar</span>
             </div>
         </div>
     </section>
-    
+
+    <section class="info-bar">
+        <div class="info-item"><i class="fas fa-clock"></i> Mon–Sat: 9 AM – 8 PM</div>
+        <div class="info-item"><i class="fas fa-map-marker-alt"></i> 142/A, 5th Block, Koramangala, Bangalore 560034</div>
+        <div class="info-item"><i class="fas fa-phone"></i> +91 98765 43210</div>
+        <div class="info-item"><i class="fab fa-whatsapp"></i> WhatsApp Available</div>
+    </section>
+
+    <section class="book-section" id="book">
+        <div class="reveal">
+            <div class="label">Book Appointment</div>
+            <h2>See Us Today</h2>
+            <p>Same-day appointments usually available. Fill in your details and we'll confirm within 30 minutes.</p>
+        </div>
+        <form class="book-form reveal">
+            <input type="text" placeholder="Your Name">
+            <input type="tel" placeholder="Phone Number">
+            <input type="email" placeholder="Email Address">
+            <select>
+                <option>Select Service</option>
+                <option>General Check-up / Cleaning</option>
+                <option>Tooth Pain / Emergency</option>
+                <option>Teeth Whitening</option>
+                <option>Root Canal Treatment</option>
+                <option>Dental Implants</option>
+                <option>Braces / Aligners Consultation</option>
+                <option>Other</option>
+            </select>
+            <input type="date">
+            <input type="text" placeholder="Preferred Time Slot">
+            <textarea placeholder="Any specific concern or question (optional)..."></textarea>
+            <button type="submit">Request Appointment</button>
+        </form>
+        <p style="margin-top:1.5rem;font-size:0.85rem;color:#999;" class="reveal">Or call directly: <strong style="color:#2d7a7a">+91 98765 43210</strong></p>
+    </section>
+
     <footer>
-        <p>© 2026 Bright Smile Dental Clinic. All rights reserved.</p>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">Dr. Arjun's Dental Studio</div>
+                <p>Trusted family dental care in Koramangala since 2014. Gentle, honest, and thorough — the way dentistry should be.</p>
+                <div class="social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-google"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <a href="#">Cleaning</a>
+                <a href="#">Teeth Whitening</a>
+                <a href="#">Implants</a>
+                <a href="#">Root Canal</a>
+                <a href="#">Braces</a>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Our Doctors</a>
+                <a href="#">Reviews</a>
+                <a href="#">Book Appointment</a>
+                <a href="#">Pricing</a>
+            </div>
+            <div class="footer-col">
+                <h4>Clinic</h4>
+                <a href="#">142/A, 5th Block</a>
+                <a href="#">Koramangala, Bangalore</a>
+                <a href="#">+91 98765 43210</a>
+                <a href="#">hello@arjunsdental.in</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Dr. Arjun's Dental Studio. All rights reserved.</p>
+        </div>
     </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => { e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
