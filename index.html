@@ -12,114 +12,121 @@
         h1, h2, h3 { font-family: 'Crimson Pro', serif; }
         :root { --teal: #2d7a7a; }
 
-        nav { position: fixed; top: 0; width: 100%; padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100; transition: 0.4s; }
-        nav.scrolled { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 0.8rem 5%; }
-        .logo { font-family: 'Crimson Pro', serif; font-size: 1.2rem; font-weight: 600; color: #2d7a7a; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); box-shadow: 0 1px 20px rgba(0,0,0,0.07); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Crimson Pro', serif; font-size: 1.2rem; font-weight: 600; color: #2d7a7a; text-decoration: none; }
         .nav-links { display: flex; list-style: none; gap: 2rem; }
         .nav-links a { color: #555; text-decoration: none; font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: #2d7a7a; }
-        .book-btn { background: #2d7a7a; color: #fff; padding: 0.7rem 1.5rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+        .book-btn { background: #2d7a7a; color: #fff; padding: 0.65rem 1.3rem; text-decoration: none; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
         .book-btn:hover { background: #1f5c5c; }
 
-        .hero { min-height: 100vh; display: flex; }
-        .hero-left { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 8rem 6% 4rem 8%; position: relative; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(45,122,122,0.1); color: #2d7a7a; padding: 0.4rem 1rem; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; width: fit-content; margin-bottom: 1.5rem; }
-        .hero h1 { font-size: 3.3rem; line-height: 1.1; color: #1a1a1a; margin-bottom: 1.5rem; }
+        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+        .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600&q=80'); background-size: cover; background-position: center; }
+        .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.88) 45%, rgba(255,255,255,0.15) 80%); }
+        .hero-content { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 7rem 3rem 4rem; display: flex; justify-content: space-between; align-items: center; gap: 3rem; }
+        .hero-text { max-width: 520px; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(45,122,122,0.1); color: #2d7a7a; padding: 0.35rem 1rem; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 1.5rem; }
+        .hero h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 1.3rem; }
         .hero h1 em { color: #2d7a7a; font-style: italic; }
-        .hero p { color: #666; font-size: 0.95rem; max-width: 440px; line-height: 1.8; margin-bottom: 2.5rem; font-weight: 300; }
-        .hero-btns { display: flex; gap: 1rem; }
-        .btn-teal { background: #2d7a7a; color: #fff; padding: 1rem 2rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; display: inline-block; }
-        .btn-teal:hover { background: #1f5c5c; transform: translateY(-2px); }
-        .btn-outline { background: transparent; color: #1a1a1a; padding: 1rem 2rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; border: 1px solid #ccc; transition: 0.3s; display: inline-block; }
-        .btn-outline:hover { border-color: #2d7a7a; color: #2d7a7a; }
-        .hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; }
-        .hero-stat .num { font-family: 'Crimson Pro', serif; font-size: 2.5rem; color: #2d7a7a; font-weight: 600; }
-        .hero-stat .label { font-size: 0.72rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
-        .hero-right { flex: 0.8; background: linear-gradient(160deg, #e8f4f4 0%, #d0ebeb 100%); display: flex; align-items: center; justify-content: center; position: relative; }
-        .hero-right i { font-size: 12rem; color: rgba(45,122,122,0.12); }
-        .hero-right .floating-card { position: absolute; bottom: 3rem; left: -2rem; background: #fff; padding: 1.2rem 1.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
-        .hero-right .floating-card .stars { color: #f5a623; font-size: 0.8rem; margin-bottom: 0.3rem; }
-        .hero-right .floating-card p { font-size: 0.8rem; color: #555; }
+        .hero p { color: #555; font-size: 0.92rem; max-width: 440px; line-height: 1.85; margin-bottom: 2rem; font-weight: 300; }
+        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-teal { background: #2d7a7a; color: #fff; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; display: inline-block; font-weight: 500; }
+        .btn-teal:hover { background: #1f5c5c; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(45,122,122,0.3); }
+        .btn-outline-dark { background: transparent; color: #1a1a1a; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; border: 1.5px solid #ccc; transition: 0.3s; display: inline-block; font-weight: 500; }
+        .btn-outline-dark:hover { border-color: #2d7a7a; color: #2d7a7a; }
+        .hero-stats { display: flex; gap: 2.5rem; margin-top: 2.5rem; }
+        .hero-stat .num { font-family: 'Crimson Pro', serif; font-size: 2.2rem; color: #2d7a7a; font-weight: 600; }
+        .hero-stat .label { font-size: 0.68rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+        .hero-right { position: relative; z-index: 2; flex-shrink: 0; }
+        .hero-right img { width: 340px; height: 400px; object-fit: cover; border-radius: 4px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); display: block; }
+        .hero-right .floating-card { position: absolute; bottom: -1rem; left: -1.5rem; background: #fff; padding: 1rem 1.3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.12); border-radius: 4px; }
+        .hero-right .floating-card .stars { color: #f5a623; font-size: 0.78rem; margin-bottom: 0.3rem; }
+        .hero-right .floating-card p { font-size: 0.78rem; color: #555; font-weight: 500; }
+        .hero-right .floating-card span { font-size: 0.68rem; color: #aaa; display: block; }
 
-        .marquee { background: #2d7a7a; padding: 0.7rem 0; overflow: hidden; }
+        .marquee { background: #2d7a7a; padding: 0.65rem 0; overflow: hidden; }
         .marquee-content { display: inline-block; animation: marquee 18s linear infinite; white-space: nowrap; }
-        .marquee-content span { color: rgba(255,255,255,0.8); font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; margin: 0 2rem; }
+        .marquee-content span { color: rgba(255,255,255,0.85); font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; margin: 0 2rem; }
         @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-        .services { padding: 6rem 5%; }
+        .services { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 3rem; }
-        .section-label { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: #2d7a7a; }
-        .section-title { font-family: 'Crimson Pro', serif; font-size: 2.5rem; margin: 0.5rem 0; }
-        .section-sub { color: #999; font-size: 0.9rem; }
-        .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+        .section-label { font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: #2d7a7a; font-weight: 600; }
+        .section-title { font-family: 'Crimson Pro', serif; font-size: 2.3rem; margin: 0.5rem 0; }
+        .section-sub { color: #999; font-size: 0.88rem; }
+        .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .service-card { padding: 2rem; border: 1px solid #eee; transition: 0.3s; cursor: pointer; }
         .service-card:hover { border-color: #2d7a7a; box-shadow: 0 5px 30px rgba(45,122,122,0.08); transform: translateY(-3px); }
-        .service-card .icon { width: 55px; height: 55px; background: rgba(45,122,122,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
-        .service-card .icon i { color: #2d7a7a; font-size: 1.4rem; }
-        .service-card h3 { font-family: 'Crimson Pro', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .service-card p { font-size: 0.85rem; color: #777; line-height: 1.6; }
-        .service-card .price-tag { margin-top: 1rem; font-size: 0.82rem; color: #2d7a7a; font-weight: 600; }
+        .service-card .icon { width: 52px; height: 52px; background: rgba(45,122,122,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+        .service-card .icon i { color: #2d7a7a; font-size: 1.3rem; }
+        .service-card h3 { font-family: 'Crimson Pro', serif; font-size: 1.15rem; margin-bottom: 0.5rem; }
+        .service-card p { font-size: 0.82rem; color: #777; line-height: 1.65; }
+        .service-card .price-tag { margin-top: 1rem; font-size: 0.8rem; color: #2d7a7a; font-weight: 600; }
 
-        .why-us { padding: 6rem 8%; background: #f9fbfb; display: flex; gap: 4rem; align-items: center; }
-        .why-left { flex: 1; }
-        .why-left .label { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: #2d7a7a; margin-bottom: 1rem; }
-        .why-left h2 { font-family: 'Crimson Pro', serif; font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2; }
-        .why-left p { color: #666; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; }
-        .why-right { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-        .why-item { padding: 1.5rem; background: #fff; border-left: 3px solid #2d7a7a; }
-        .why-item h3 { font-family: 'Crimson Pro', serif; font-size: 1.1rem; margin-bottom: 0.4rem; }
-        .why-item p { font-size: 0.82rem; color: #777; line-height: 1.5; }
+        .why-us { padding: 6rem 2rem; display: flex; gap: 5rem; align-items: center; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; }
+        .why-left { flex: 1; min-width: 300px; }
+        .why-left .label { font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: #2d7a7a; font-weight: 600; margin-bottom: 1rem; }
+        .why-left h2 { font-family: 'Crimson Pro', serif; font-size: 2.3rem; margin-bottom: 1.3rem; line-height: 1.2; }
+        .why-left p { color: #666; font-size: 0.9rem; line-height: 1.85; margin-bottom: 0.8rem; font-weight: 300; }
+        .why-right { flex: 1; min-width: 300px; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+        .why-item { padding: 1.3rem; background: #f9fbfb; border-left: 3px solid #2d7a7a; }
+        .why-item h3 { font-family: 'Crimson Pro', serif; font-size: 1rem; margin-bottom: 0.4rem; }
+        .why-item p { font-size: 0.8rem; color: #777; line-height: 1.55; }
 
-        .dentists { padding: 6rem 5%; }
-        .dentist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto; }
-        .dentist-card { display: flex; gap: 1.5rem; background: #f9fbfb; padding: 1.5rem; }
-        .dentist-avatar { width: 90px; height: 90px; background: rgba(45,122,122,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .dentist-avatar i { color: #2d7a7a; font-size: 2rem; }
-        .dentist-info h3 { font-family: 'Crimson Pro', serif; font-size: 1.2rem; margin-bottom: 0.2rem; }
-        .dentist-info .degree { color: #2d7a7a; font-size: 0.8rem; font-weight: 500; margin-bottom: 0.5rem; }
-        .dentist-info p { font-size: 0.82rem; color: #777; line-height: 1.6; }
+        .doctor-section { padding: 6rem 2rem; background: #f9fbfb; }
+        .doctor-section .section-header { margin-bottom: 3rem; }
+        .dentist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto; }
+        .dentist-card { display: flex; gap: 1.3rem; background: #fff; padding: 1.5rem; border: 1px solid #eee; }
+        .dentist-card img { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; flex-shrink: 0; }
+        .dentist-card .dentist-info h3 { font-family: 'Crimson Pro', serif; font-size: 1.15rem; margin-bottom: 0.2rem; }
+        .dentist-card .degree { color: #2d7a7a; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.4rem; }
+        .dentist-card .dentist-info p { font-size: 0.8rem; color: #777; line-height: 1.6; }
 
-        .testimonials { padding: 6rem 5%; background: #1a1a1a; color: #fff; }
+        .testimonials { padding: 6rem 2rem; color: #fff; position: relative; overflow: hidden; }
+        .testimonials-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=1600&q=80'); background-size: cover; background-position: center; }
+        .testimonials-bg::after { content: ''; position: absolute; inset: 0; background: rgba(20,20,20,0.88); }
+        .testimonials .content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; }
         .testimonials .section-label { color: #5ec0bf; }
         .testimonials .section-title { color: #fff; }
         .testimonials .section-sub { color: rgba(255,255,255,0.4); }
-        .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto; }
-        .testi-card { background: rgba(255,255,255,0.04); padding: 2rem; border: 1px solid rgba(255,255,255,0.07); }
-        .testi-card .quote { color: #5ec0bf; font-size: 1.5rem; margin-bottom: 1rem; }
-        .testi-card p { color: rgba(255,255,255,0.65); font-size: 0.92rem; line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; }
-        .testi-card h4 { font-size: 0.9rem; font-weight: 500; }
-        .testi-card span { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+        .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .testi-card { background: rgba(255,255,255,0.05); padding: 2rem; border: 1px solid rgba(255,255,255,0.08); }
+        .testi-card .quote { color: #5ec0bf; font-size: 1.4rem; margin-bottom: 1rem; }
+        .testi-card p { color: rgba(255,255,255,0.62); font-size: 0.88rem; line-height: 1.8; font-style: italic; margin-bottom: 1.3rem; }
+        .testi-card h4 { font-size: 0.85rem; font-weight: 500; }
+        .testi-card span { font-size: 0.68rem; color: rgba(255,255,255,0.3); }
 
-        .book-section { padding: 6rem 5%; text-align: center; }
-        .book-section .label { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: #2d7a7a; }
-        .book-section h2 { font-family: 'Crimson Pro', serif; font-size: 2.5rem; margin: 0.5rem 0; }
-        .book-section p { color: #888; max-width: 420px; margin: 0 auto 2.5rem; }
+        .book-section { padding: 6rem 2rem; text-align: center; }
+        .book-section .label { font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: #2d7a7a; font-weight: 600; }
+        .book-section h2 { font-family: 'Crimson Pro', serif; font-size: 2.3rem; margin: 0.5rem 0; }
+        .book-section .book-section-sub { color: #888; max-width: 420px; margin: 0 auto 2.5rem; }
         .book-form { max-width: 520px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .book-form input, .book-form select { padding: 1rem; border: 1px solid #ddd; font-family: 'Inter', sans-serif; font-size: 0.85rem; outline: none; transition: 0.3s; }
+        .book-form input, .book-form select { padding: 0.9rem; border: 1px solid #ddd; font-family: 'Inter', sans-serif; font-size: 0.82rem; outline: none; transition: 0.3s; background: #fff; }
         .book-form input:focus, .book-form select:focus { border-color: #2d7a7a; box-shadow: 0 0 0 3px rgba(45,122,122,0.1); }
-        .book-form input::placeholder, .book-form select { color: #bbb; }
+        .book-form input::placeholder { color: #bbb; }
         .book-form .full { grid-column: span 2; }
-        .book-form textarea { padding: 1rem; border: 1px solid #ddd; font-family: 'Inter', sans-serif; font-size: 0.85rem; height: 80px; resize: none; outline: none; grid-column: span 2; }
+        .book-form textarea { padding: 0.9rem; border: 1px solid #ddd; font-family: 'Inter', sans-serif; font-size: 0.82rem; height: 80px; resize: none; outline: none; grid-column: span 2; background: #fff; }
         .book-form textarea:focus { border-color: #2d7a7a; box-shadow: 0 0 0 3px rgba(45,122,122,0.1); }
         .book-form textarea::placeholder { color: #bbb; }
-        .book-form button { grid-column: span 2; padding: 1rem; background: #2d7a7a; color: #fff; border: none; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+        .book-form button { grid-column: span 2; padding: 1rem; background: #2d7a7a; color: #fff; border: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.3s; font-weight: 600; }
         .book-form button:hover { background: #1f5c5c; }
 
-        .info-bar { background: #2d7a7a; padding: 2rem 5%; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; }
-        .info-item { color: #fff; font-size: 0.85rem; display: flex; align-items: center; gap: 0.8rem; }
-        .info-item i { font-size: 1.1rem; }
+        .info-bar { background: #2d7a7a; padding: 1.8rem 2rem; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; }
+        .info-item { color: #fff; font-size: 0.82rem; display: flex; align-items: center; gap: 0.8rem; }
+        .info-item i { font-size: 1rem; }
 
-        footer { background: #0d0d0d; color: #fff; padding: 4rem 5% 2rem; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-        .footer-brand .logo { font-family: 'Crimson Pro', serif; font-size: 1.3rem; color: #2d7a7a; margin-bottom: 1rem; }
-        .footer-brand p { color: #555; font-size: 0.85rem; line-height: 1.8; margin-bottom: 1.5rem; }
-        .footer-brand .social a { color: #666; margin-right: 1rem; text-decoration: none; transition: 0.3s; }
+        footer { background: #0d0d0d; color: #fff; padding: 4rem 2rem 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto 3rem; }
+        .footer-brand .logo { font-family: 'Crimson Pro', serif; font-size: 1.2rem; color: #2d7a7a; margin-bottom: 1rem; }
+        .footer-brand p { color: #555; font-size: 0.82rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .footer-brand .social a { color: #666; margin-right: 1rem; text-decoration: none; transition: 0.3s; font-size: 1rem; }
         .footer-brand .social a:hover { color: #2d7a7a; }
-        .footer-col h4 { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #2d7a7a; margin-bottom: 1rem; }
-        .footer-col a { display: block; color: #555; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.6rem; transition: 0.3s; }
+        .footer-col h4 { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: #2d7a7a; margin-bottom: 1rem; }
+        .footer-col a { display: block; color: #555; text-decoration: none; font-size: 0.82rem; margin-bottom: 0.55rem; transition: 0.3s; }
         .footer-col a:hover { color: #2d7a7a; }
-        .footer-bottom { border-top: 1px solid #1a1a1a; padding-top: 2rem; text-align: center; }
-        .footer-bottom p { font-size: 0.72rem; color: #333; }
+        .footer-bottom { border-top: 1px solid #1a1a1a; padding-top: 2rem; text-align: center; max-width: 1200px; margin: 0 auto; }
+        .footer-bottom p { font-size: 0.68rem; color: #333; }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -132,54 +139,63 @@
         .stagger.active > *:nth-child(6) { opacity:1;transform:translateY(0);transition-delay:0.75s; }
 
         @media (max-width: 768px) {
-            nav ul { display: none; }
-            .hero { flex-direction: column; }
-            .hero-right { min-height: 50vh; }
-            .hero-right .floating-card { left: 1rem; }
-            .hero h1 { font-size: 2.4rem; }
+            .nav-links { display: none; }
+            .hero-content { flex-direction: column; padding: 6rem 1.5rem 3rem; }
+            .hero-right { order: -1; }
+            .hero-right img { width: 100%; height: 240px; }
+            .hero-right .floating-card { left: 0; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-stats { gap: 1.5rem; }
             .service-grid { grid-template-columns: 1fr; }
-            .why-us { flex-direction: column; }
+            .why-us { flex-direction: column; gap: 2rem; }
             .why-right { grid-template-columns: 1fr; }
             .dentist-grid { grid-template-columns: 1fr; }
             .testi-grid { grid-template-columns: 1fr; }
             .book-form { grid-template-columns: 1fr; }
             .book-form .full, .book-form textarea, .book-form button { grid-column: span 1; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
+            .info-bar { gap: 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <nav id="navbar">
-        <div class="logo">Dr. Arjun's Dental Studio</div>
-        <ul>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#doctors">Our Doctors</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-        </ul>
-        <a href="#book" class="book-btn">Book Appointment</a>
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="logo">Dr. Arjun's Dental Studio</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#doctors">Our Doctors</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+            </ul>
+            <a href="#book" class="book-btn">Book Appointment</a>
+        </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-left">
-            <div class="hero-badge"><i class="fas fa-shield-alt"></i> Sterilization-First Clinic</div>
-            <h1>Dentistry Without<br><em>The Dread</em></h1>
-            <p>I'm Dr. Arjun Mehta. I've been a dentist for 14 years. I've heard every fear there is — from patients who haven't visited a dentist in 8 years because of a bad childhood experience. My clinic is built around making that experience different. We take our time. We explain everything. We use the smallest possible injections. Most of our new patients are referrals from people who overcame their own fear here.</p>
-            <div class="hero-btns">
-                <a href="#book" class="btn-teal">Book First Visit</a>
-                <a href="#services" class="btn-outline">What We Treat</a>
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge"><i class="fas fa-shield-alt"></i> Koramangala, Bangalore — Since 2015</div>
+                <h1>Dentistry Without<br>The <em>Dread</em></h1>
+                <p>I'm Dr. Arjun Mehta. I've been a dentist for 14 years. I've heard every fear there is — from patients who haven't visited a dentist in 8 years because of a bad childhood experience. My clinic is built around making that experience different. We take our time. We explain everything. We use the smallest possible injections. Most of our new patients are referrals from people who overcame their own fear here.</p>
+                <div class="hero-btns">
+                    <a href="#book" class="btn-teal">Book First Visit</a>
+                    <a href="#services" class="btn-outline-dark">What We Treat</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat"><div class="num">14</div><div class="label">Years Experience</div></div>
+                    <div class="hero-stat"><div class="num">7,800+</div><div class="label">Patients Treated</div></div>
+                    <div class="hero-stat"><div class="num">4.9</div><div class="label">Google Rating</div></div>
+                </div>
             </div>
-            <div class="hero-stats">
-                <div class="hero-stat"><div class="num">14</div><div class="label">Years Experience</div></div>
-                <div class="hero-stat"><div class="num">7,800+</div><div class="label">Patients Treated</div></div>
-                <div class="hero-stat"><div class="num">4.9</div><div class="label">Google Rating</div></div>
-            </div>
-        </div>
-        <div class="hero-right">
-            <i class="fas fa-tooth"></i>
-            <div class="floating-card">
-                <div class="stars">★★★★★</div>
-                <p>340+ reviews on Google</p>
+            <div class="hero-right">
+                <img src="https://images.unsplash.com/photo-1609825488888-3a766db05542?w=600&q=80" alt="Dr. Arjun Mehta, dentist in Koramangala">
+                <div class="floating-card">
+                    <div class="stars">★★★★★</div>
+                    <p>340+ reviews on Google</p>
+                    <span>4.9 out of 5</span>
+                </div>
             </div>
         </div>
     </section>
@@ -245,34 +261,34 @@
         </div>
     </section>
 
-    <section class="why-us" id="about">
+    <section class="why-us" id="why-us">
         <div class="why-left reveal">
             <div class="label">Why Patients Choose Us</div>
             <h2>A Small Clinic That Runs<br>On Time and Takes Its Time</h2>
-            <p>We deliberately stay small. I'm the only dentist here — not a corporate chain with rotating doctors who don't know your case history. You see me every visit. Your notes are in my head, not a database I have to query.</p>
-            <p>I started practicing in 2010 at a chain clinic and saw how volume-based dentistry leads to overtreatment and burnout. I opened my own clinic in Koramangala in 2015 specifically to do the opposite — fewer patients, more attention, honest recommendations. Most patients who come here have been to three other dentists before me. They're tired of being told they need work they don't actually need.</p>
+            <p>We deliberately stay small. I'm the only dentist here — not a corporate chain with rotating doctors who don't know your case history. You see me every visit.</p>
+            <p>I started practicing in 2010 at a chain clinic and saw how volume-based dentistry leads to overtreatment. I opened my own clinic in Koramangala in 2015. Most patients who come here have been to three other dentists before me. They're tired of being told they need work they don't actually need.</p>
         </div>
         <div class="why-right stagger">
             <div class="why-item">
                 <h3>No Overtreatment</h3>
-                <p>I've turned down cosmetic cases where a cleaning was all the patient needed. I won't push veneers on you. If your teeth are healthy, I'll tell you and send you home.</p>
+                <p>I've turned down cosmetic cases where a cleaning was all the patient needed. I won't push veneers on you. If your teeth are healthy, I'll tell you.</p>
             </div>
             <div class="why-item">
                 <h3>Sterilization Protocol</h3>
-                <p>Every instrument is autoclaved. We use disposable materials wherever possible. Our sterilization protocol was developed during COVID and we've kept it — not because we're worried, but because it was always the right standard.</p>
+                <p>Every instrument is autoclaved. Our sterilization protocol was developed during COVID and we've kept it because it was always the right standard.</p>
             </div>
             <div class="why-item">
                 <h3>Predictable Pricing</h3>
-                <p>Every treatment plan includes a full itemized cost breakdown before we start. No billing surprises. If something changes during treatment, I tell you before we proceed, not after.</p>
+                <p>Every treatment plan includes a full itemized cost breakdown before we start. No billing surprises.</p>
             </div>
             <div class="why-item">
                 <h3>For Anxious Patients</h3>
-                <p>We take extra time with patients who've had bad experiences. The first visit is usually just talking — no work, no pressure. We can discuss sedation options for longer procedures.</p>
+                <p>We take extra time with patients who've had bad experiences. The first visit is usually just talking — no work, no pressure.</p>
             </div>
         </div>
     </section>
 
-    <section class="dentists" id="doctors">
+    <section class="doctor-section" id="doctors">
         <div class="section-header reveal">
             <div class="section-label">The Team</div>
             <h2 class="section-title">Meet Your Dentists</h2>
@@ -280,42 +296,45 @@
         </div>
         <div class="dentist-grid stagger">
             <div class="dentist-card">
-                <div class="dentist-avatar"><i class="fas fa-user"></i></div>
+                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&q=80" alt="Dr. Arjun Mehta">
                 <div class="dentist-info">
                     <h3>Dr. Arjun Mehta, MDS</h3>
                     <div class="degree">Prosthodontist — 14 Years</div>
-                    <p>Specializes in crowns, bridges, and full-mouth rehabilitations. 2,200+ implant placements. Known for being methodical — he'll take an hour to explain a complex case because he wants you to understand all your options before making a decision. Outside work: amateur marathon runner, completing his 6th Bangalore Marathon this year.</p>
+                    <p>Specializes in crowns, bridges, and full-mouth rehabilitations. 2,200+ implant placements. Known for being methodical — he'll take an hour to explain a complex case. Outside work: amateur marathon runner.</p>
                 </div>
             </div>
             <div class="dentist-card">
-                <div class="dentist-avatar"><i class="fas fa-user"></i></div>
+                <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=200&q=80" alt="Dr. Srishti Kapoor">
                 <div class="dentist-info">
                     <h3>Dr. Srishti Kapoor, MDS</h3>
                     <div class="degree">Orthodontist — 8 Years</div>
-                    <p>Leads our braces and aligners practice. Particularly skilled with adult patients who want straighter teeth without the social visibility of metal braces. She's been doing clear aligner cases for 5 years and has completed over 400 cases. Her patients love that she's patient — literally and figuratively.</p>
+                    <p>Leads our braces and aligners practice. Particularly skilled with adult patients who want straighter teeth without the social visibility of metal braces. She's completed over 400 aligner cases.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="testimonials" id="reviews">
-        <div class="section-header reveal">
-            <div class="section-label">Reviews</div>
-            <h2 class="section-title">What Patients Actually Say</h2>
-            <p class="section-sub">340+ reviews across Google and Practo — we don't cherry-pick</p>
-        </div>
-        <div class="testi-grid stagger">
-            <div class="testi-card">
-                <div class="quote"><i class="fas fa-quote-left"></i></div>
-                <p>"I hadn't been to a dentist in 6 years due to extreme anxiety. Dr. Arjun and his team were incredibly patient — the first appointment was literally just talking, no instruments. The injection was genuinely painless (I couldn't believe it). I got my root canal done last month and was terrified for nothing. I actually look forward to my next cleaning now. That's a sentence I never thought I'd say."</p>
-                <h4>Meera Krishnamurthy</h4>
-                <span>Product Designer, HSR Layout · Google Review</span>
+        <div class="testimonials-bg"></div>
+        <div class="content">
+            <div class="section-header reveal">
+                <div class="section-label">Reviews</div>
+                <h2 class="section-title">What Patients Actually Say</h2>
+                <p class="section-sub">340+ reviews across Google and Practo — we don't cherry-pick</p>
             </div>
-            <div class="testi-card">
-                <div class="quote"><i class="fas fa-quote-left"></i></div>
-                <p>"I've been going to Dr. Arjun for 3 years now. The thing I appreciate most: he's transparent about what's urgent vs what can wait. He told me my wisdom tooth didn't need removal yet even though another dentist had quoted me ₹15,000 for it. That's integrity. My whole family now goes to him — my 7-year-old daughter actually likes going because he lets her hold the mirror and explains everything she's seeing."</p>
-                <h4>Vikram Shankar</h4>
-                <span>Software Architect, Indiranagar · 5-Year Patient</span>
+            <div class="testi-grid stagger">
+                <div class="testi-card">
+                    <div class="quote"><i class="fas fa-quote-left"></i></div>
+                    <p>"I hadn't been to a dentist in 6 years due to extreme anxiety. Dr. Arjun and his team were incredibly patient — the first appointment was literally just talking, no instruments. The injection was genuinely painless. I got my root canal done last month and was terrified for nothing. I actually look forward to my next cleaning now."</p>
+                    <h4>Meera Krishnamurthy</h4>
+                    <span>Product Designer, HSR Layout · Google Review</span>
+                </div>
+                <div class="testi-card">
+                    <div class="quote"><i class="fas fa-quote-left"></i></div>
+                    <p>"I've been going to Dr. Arjun for 3 years. The thing I appreciate most: he's transparent about what's urgent vs what can wait. He told me my wisdom tooth didn't need removal yet even though another dentist had quoted me ₹15,000 for it. That's integrity. My whole family now goes to him."</p>
+                    <h4>Vikram Shankar</h4>
+                    <span>Software Architect, Indiranagar · 5-Year Patient</span>
+                </div>
             </div>
         </div>
     </section>
@@ -331,7 +350,7 @@
         <div class="reveal">
             <div class="label">Book Appointment</div>
             <h2>See Us — No Pressure</h2>
-            <p>New patient exams include a full oral health assessment, X-ray if needed, and a honest conversation about what we find. Fill this and we'll confirm within 2 hours during clinic hours.</p>
+            <p class="book-section-sub">New patient exams include a full oral health assessment, X-ray if needed, and a honest conversation about what we find. Fill this and we'll confirm within 2 hours during clinic hours.</p>
         </div>
         <form class="book-form reveal" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Request Sent ✓'; this.querySelector('button').style.background='#1f5c5c';">
             <input type="text" placeholder="Your name">
@@ -353,7 +372,7 @@
             <textarea placeholder="Anything we should know in advance? (anxiety, medical conditions, specific concern)"></textarea>
             <button type="submit">Request Appointment</button>
         </form>
-        <p style="margin-top:1.5rem;font-size:0.85rem;color:#999;" class="reveal">Or WhatsApp us: <strong style="color:#2d7a7a">+91 99018 47231</strong></p>
+        <p style="margin-top:1.5rem;font-size:0.82rem;color:#999;" class="reveal">Or WhatsApp us: <strong style="color:#2d7a7a">+91 99018 47231</strong></p>
     </section>
 
     <footer>
@@ -376,7 +395,7 @@
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
-                <a href="#about">About Us</a>
+                <a href="#why-us">About Us</a>
                 <a href="#doctors">Our Doctors</a>
                 <a href="#reviews">Patient Reviews</a>
                 <a href="#book">Book Appointment</a>
@@ -395,9 +414,6 @@
     </footer>
 
     <script>
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
         }, { threshold: 0.1 });
